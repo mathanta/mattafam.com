@@ -1,5 +1,5 @@
 function createButton(url, imageSrc, text) {
-    document.write(`
+    const html = `
         <a href="${url}" class="custom-button" target="_blank">
             <div class="image-container">
                 <img src="images/${imageSrc}" alt="${imageSrc}" class="button-img">
@@ -8,7 +8,10 @@ function createButton(url, imageSrc, text) {
                 <div class="btn-text">${text}</div>
             </div>
         </a>
-    `);
+    `;
+
+    const container = document.querySelector('.button-container');
+    container.insertAdjacentHTML('beforeend', html);
 }
 
 function createDropdownButton(imageSrc, text, dropdownOptions) {
@@ -23,9 +26,9 @@ function createDropdownButton(imageSrc, text, dropdownOptions) {
                 </div>
             </a>
             <div class="dropdown-content">
-                ${dropdownOptions.map(option => 
-                    `<a href="${option.url}" target="_blank" class="${option.class}">${option.text}</a>`
-                ).join('')}
+                ${dropdownOptions.map(option =>
+        `<a href="${option.url}" target="_blank" class="${option.class}">${option.text}</a>`
+    ).join('')}
             </div>
         </div>
     `);
@@ -38,7 +41,7 @@ function toggleDropdown(event) {
 }
 
 // Close dropdowns when clicking outside
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     if (!event.target.closest('.dropdown-button-container')) {
         document.querySelectorAll('.dropdown-content').forEach(dropdown => {
             dropdown.style.display = 'none';

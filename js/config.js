@@ -83,6 +83,11 @@ const buttons = [
         url: "https://ai.mattafam.com",
         img: "ollama.svg",
         text: "Ollama"
+    },
+    {
+        url: "https://food.mattafam.com",
+        img: "mealie.svg",
+        text: "Mealie"
     }
 ];
 
